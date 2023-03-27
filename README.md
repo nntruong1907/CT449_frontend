@@ -27,3 +27,8 @@ npm run dev
 ```sh
 npm run build
 ```
+
+<h2 align="center">
+
+  <img src="https://media3.giphy.com/media/vzO0Vc8b2VBLi/giphy.gif?cid=ecf05e472maffncnof0in73d9136vazm94zn7hp3fr3byhc2&rid=giphy.gif&ct=g" alt="Coder GIF" width="500">
+</h2> 
