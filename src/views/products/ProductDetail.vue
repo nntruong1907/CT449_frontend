@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid mb-5 position-relative background-image" style="height:90vh">
         <div class="banner-title row">
-            <div class="car">
+            <div class="motor">
                 <img :src="this.product[0]?.image.image_path" class="w-100 py-3" height="600" />
                 <p class="ms-5 text-secondary"><i class="fa-solid fa-circle-info"></i> All images and specifications
                     shown are for illustrative purposes only. PLEASE double check the Customer recommendation provided by
@@ -59,7 +59,6 @@
                                         <div class="form-floating mb-3">
                                             <select v-model="this.data.payment" class="form-select" id="floatingSelect"
                                                 aria-label="payment">
-                                                <!-- <option selected>Options</option> -->
                                                 <option value="COD">COD</option>
                                                 <option value="Credit Card">Credit Card</option>
                                                 <option value="Visa">Visa</option>
@@ -214,9 +213,9 @@ export default {
         async handleSubmit() {
             try {
                 await OrderService.create({ ...this.data, _productid: this.product[0]?._id });
-                alert("Sent! Please wait for us to contact")
+                alert("Submitted successfully! Please wait for us to contact")
             } catch (error) {
-                alert('Send failed')
+                alert('Send failed!')
             }
             this.getData();
         }
@@ -247,7 +246,7 @@ export default {
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.349);
 }
 
-.car {
+.motor {
     position: absolute;
     width: 65%;
     height: fit-content;

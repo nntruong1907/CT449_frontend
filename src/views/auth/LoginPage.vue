@@ -70,7 +70,7 @@ export default {
         if (response) {
           await this.userStore.logIn(response);
           if (response.user.account.admin) {
-            this.$router.push({ name: "admin" });
+            this.$router.push({ name: "admin.products" });
           }
           else {
             this.$router.push({ name: "home" });

@@ -9,7 +9,7 @@ class OrderService {
     async getAll() {
         const userStore = useUserStore();
         const res = await this.api.get(('/'), {
-            headers: { Authorization: `Bearer ${userStore.token}` },
+            headers: { Authorization: `Bearer ${userStore.token}` }
         });
         return res.data;
     }
@@ -17,9 +17,7 @@ class OrderService {
     async create(data) {
         const userStore = useUserStore();
         const res = await this.api.post("/", data, {
-            headers: {
-                Authorization: `Bearer ${userStore.token}`
-            }
+            headers: { Authorization: `Bearer ${userStore.token}` }
         })
         return res.data;
     }
@@ -43,11 +41,7 @@ class OrderService {
     async update(id, data) {
         const userStore = useUserStore();
         const res = await this.api.put(`/${id}`, data, {
-            headers: {
-                Authorization: `Bearer ${userStore.token}`,
-                "Content-Type": "multipart/form-data",
-                Accept: "multipart/form-data",
-            }
+            headers: { Authorization: `Bearer ${userStore.token}` }
         })
         return res.data;
     }

@@ -40,7 +40,7 @@
             <td class="align-middle fw-bold font-monospace">{{ e.product.name }}</td>
             <td class="align-middle fw-light">{{ e.payment }}</td>
             <td class="align-middle" v-if="e.status == 'Unconfirmed'">
-              
+
               <button type="button" @click="this.handleSubmit(e._id, true)" data-bs-toggle="modal"
                 data-bs-target="#addProduct" class="btn btn-outline-success px-3">
                 <i class="fas fa-check"></i>
@@ -63,22 +63,22 @@ export default {
     return {
       orders: [],
       allOrder: [],
+      // status: {}
     }
   },
   methods: {
     async getData() {
       this.allOrder = await OrderService.getAll();
       this.orders = this.allOrder.filter((e) => e.status == "Unconfirmed")
-
     },
     async handleSubmit(id, bool) {
-      console.log("🚀 ~ file: OrderManager.vue:73 ~ handleSubmit ~ id:", id)
-      console.log("🚀 ~ file: OrderManager.vue:73 ~ handleSubmit ~ bool:", bool)
       try {
         if (bool) {
-          await OrderService.update(id, { status: "Confirmed" })
+          await OrderService.update(id, { status: "Confirmed" });
+          alert('Order confirmation successful!')
         } else {
-          await OrderService.update(id, { status: "Unconfirmed" })
+          await OrderService.delete(id);
+          alert('Deleted order successfully!')
         }
         this.getData();
       } catch (error) {
