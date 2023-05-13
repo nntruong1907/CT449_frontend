@@ -62,15 +62,15 @@
         </tbody>
       </table>
     </div>
+
     <!-- Form AddProduct -->
-    <!-- <div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
+    <div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="addProductLabel">Product</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          
           <div class="modal-body">
             <div class="row">
               <div class="col-md-6">
@@ -81,7 +81,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.price" type="number" class="form-control" id="floatingInput" placeholder="">
+                  <input v-model="this.data.price" type="text" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Price</label>
                 </div>
               </div>
@@ -89,12 +89,11 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-floating">
-                  <select v-model="this.data.type.name" class="rounded form-select" id="floatingSelect" aria-label="type">
-                    <option selected>Options</option>
-                    <option value="cruiser">Cruiser</option>
-                    <option value="sport">Sport</option>
-                    <option value="street">Street</option>
-                    <option value="touring">Touring</option>
+                  <select v-model="this.data._typeid" class="rounded form-select" id="floatingSelect" aria-label="type">
+                    <option value="641feb23809f5d95726c4287">Cruiser</option>
+                    <option value="641feb05809f5d95726c4270">Sport</option>
+                    <option value="641ff183809f5d95726c46f6">Street</option>
+                    <option value="641feb34809f5d95726c4293">Touring</option>
                   </select>
                   <label for="floatingSelect">Type</label>
                 </div>
@@ -110,13 +109,11 @@
             <div class="row mb-3">
               <div class="col-md-6">
                 <div class="form-floating">
-                  <select v-model="this.data.brand.name" class="rounded form-select" id="floatingSelect"
-                    aria-label="Brand">
-                    <option selected>Options</option>
-                    <option value="bmw">BMW</option>
-                    <option value="ducati">Ducati</option>
-                    <option value="honda">Honda</option>
-                    <option value="kawasaki">Kawasaki</option>
+                  <select v-model="this.data._brandid" class="rounded form-select" id="floatingSelect" aria-label="Brand">
+                    <option value="6420103a809f5d95726c5b20">BMW</option>
+                    <option value="642010d5809f5d95726c5b90">Ducati</option>
+                    <option value="64201329809f5d95726c5d15">Honda</option>
+                    <option value="64201554809f5d95726c5ec5">Kawasaki</option>
                   </select>
                   <label for="floatingSelect">Brand</label>
                 </div>
@@ -132,29 +129,25 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.weight" type="number" class="form-control" id="floatingInput"
-                    placeholder="">
+                  <input v-model="this.data.weight" type="number" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Weight</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.length" type="number" class="form-control" id="floatingInput"
-                    placeholder="">
+                  <input v-model="this.data.length" type="number" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Length</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.width" type="number" class="form-control" id="floatingInput"
-                    placeholder="">
+                  <input v-model="this.data.width" type="number" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Width</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.height" type="number" class="form-control" id="floatingInput"
-                    placeholder="">
+                  <input v-model="this.data.height" type="number" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Height</label>
                 </div>
               </div>
@@ -162,29 +155,27 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.ground_clearance" type="number" class="form-control"
-                    id="floatingInput" placeholder="">
+                  <input v-model="this.data.ground_clearance" type="number" class="form-control" id="floatingInput"
+                    placeholder="">
                   <label for="floatingInput">Ground Clearance</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.fuel_capacity" type="number" class="form-control" id="floatingInput"
+                  <input v-model="this.data.fuel_capacity" type="number" class="form-control" id="floatingInput"
                     placeholder="">
                   <label for="floatingInput">Fuel Capacity</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.color" type="text" class="form-control" id="floatingInput"
-                    placeholder="">
+                  <input v-model="this.data.color" type="text" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Color</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.year" type="number" class="form-control" id="floatingInput"
-                    placeholder="">
+                  <input v-model="this.data.year" type="number" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Year</label>
                 </div>
               </div>
@@ -192,21 +183,19 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.engine" type="text" class="form-control" id="floatingInput"
-                    placeholder="">
+                  <input v-model="this.data.engine" type="text" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Engine</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.power" type="number" class="form-control" id="floatingInput"
-                    placeholder="">
+                  <input v-model="this.data.power" type="number" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Power</label>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.speed
+                  <input v-model="this.data.speed
                     " type="number" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Speed
                   </label>
@@ -214,7 +203,7 @@
               </div>
               <div class="col-md-3">
                 <div class="form-floating mb-3">
-                  <input v-model="this.data.details.compression_ratio
+                  <input v-model="this.data.compression_ratio
                     " type="text" class="form-control" id="floatingInput" placeholder="">
                   <label for="floatingInput">Compression Ratio
                   </label>
@@ -222,7 +211,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button v-if="this.data._id != null" type="button" class="btn btn-primary" data-bs-dismiss="modal"
@@ -232,7 +221,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -244,19 +233,15 @@ export default {
       products: [],
       productsTemp: [],
       filter: '',
-      data: {
-        details: {
-        }
-      },
-      selectedFile: ''
+      data: {},
     }
   },
   methods: {
     async getData() {
       this.productsTemp = await ProductService.getAll();
       this.products = this.productsTemp.reverse();
-      console.log("🚀 ~ file: ProductManager.vue:253 ~ getData ~ this.products:", this.products)
     },
+
     sort(e) {
       if (e.target.value == 1) {
         this.products.sort((a, b) => a.price - b.price)
@@ -272,9 +257,10 @@ export default {
       this.filter = name;
       this.products = this.productsTemp.filter(e => e.brand.name.includes(name) || e.type.name.includes(name))
     },
+
     changeFile(e) {
       const file = e.target.files[0];
-      this.selectedFile = file;
+      this.data.image_path = file;
     },
     buildFormData(formData, data, parentKey) {
       if (data && typeof data === 'object' && !(data instanceof Date) && !(data instanceof File)) {
@@ -289,23 +275,25 @@ export default {
     },
     async handleAdd() {
       var formData = new FormData();
-      formData.append('file', this.selectedFile);
       this.buildFormData(formData, this.data)
       await ProductService.create(formData);
       this.getData();
+      alert('Create successful products!')
     },
 
     async handleUpdate() {
       var formData = new FormData();
-      formData.append('file', this.selectedFile);
       this.buildFormData(formData, this.data)
       const rs = await ProductService.update(this.data._id, formData);
       this.getData();
       alert(rs.message);
     },
+
     async delete(id) {
       await ProductService.delete(id);
       this.getData();
+      alert('Delete successful products!')
+
     },
     search(title) {
       this.products = this.productsTemp.filter(e => e.name.toLowerCase().includes(title.target.value.toLowerCase()))

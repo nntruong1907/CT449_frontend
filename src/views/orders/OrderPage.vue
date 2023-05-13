@@ -24,8 +24,6 @@
                                 }">
                                     <img :src="order.product.image.image_path" width="200" />
                                 </router-link>
-                                <!-- <router-link to="product/:id"><img :src="order.product.image.image_path" width="200">
-                                </router-link> -->
                             </td>
                             <td class="align-middle">{{ order.product.name }}</td>
                             <td class=" align-middle">{{ new Intl.NumberFormat('it-IT', {
@@ -34,8 +32,8 @@
                             }} <i class="fa-solid fa-dong-sign"></i>
                             </td>
                             <td v-if="order.status == 'Unconfirmed'"
-                                class="fw-bold text-warning font-monospace align-middle">Unconfirmed</td>
-                            <td v-else class="fw-bold text-success font-monospace align-middle">{{ order.status }}</td>
+                                class="fw-bold text-warning align-middle">Unconfirmed</td>
+                            <td v-else class="fw-bold text-success align-middle">{{ order.status }}</td>
                             <td class="align-middle">
                                 <div class="row">
                                     <div class="col-md-6 text-end">
@@ -69,6 +67,14 @@
                                         <p>{{ order.payment }}</p>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6 text-end">
+                                        <strong>Time Order: </strong>
+                                    </div>
+                                    <div class="col-md-6 text-start">
+                                        <p>{{ order.date_order }}</p>
+                                    </div>
+                                </div>
                             </td>
                             <!-- <td>
                                 <router-link to="/delCart?masp="><button class="btn btn-dark text-light">X</button>
@@ -96,7 +102,6 @@ export default {
         async getData() {
             if (this.userStore.user.phone != null) {
                 this.orders = await OrderService.findByUserId(this.userStore.user._id);
-                console.log("🚀 ~ file: OrderPage.vue:99 ~ getData ~ this.orders:", this.orders)
             }
         }
     },

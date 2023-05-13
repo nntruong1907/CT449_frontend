@@ -214,6 +214,9 @@ export default {
             try {
                 await OrderService.create({ ...this.data, _productid: this.product[0]?._id });
                 alert("Submitted successfully! Please wait for us to contact")
+                setTimeout(() => {
+                    this.$router.push({ name: "orders" });
+                }, 1000);
             } catch (error) {
                 alert('Send failed!')
             }

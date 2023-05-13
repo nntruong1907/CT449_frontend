@@ -44,8 +44,8 @@
               <button type="button" @click="this.handleSubmit(e._id, true)" data-bs-toggle="modal"
                 data-bs-target="#addProduct" class="btn btn-outline-success px-3">
                 <i class="fas fa-check"></i>
-              </button>
-              <button class="btn btn-outline-danger ms-1 px-3" @click="this.handleSubmit(e._id, false)">
+              </button> <span></span>
+              <button class="btn btn-outline-danger px-3" @click="this.handleSubmit(e._id, false)">
                 <i class="fas fa-xmark mx-1"></i>
               </button>
             </td>

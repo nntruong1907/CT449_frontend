@@ -18,6 +18,7 @@ class ProductService {
     }
 
     async create(data) {
+        console.log("🚀 ~ file: product.service.js:21 ~ ProductService ~ create ~ data:", data)
         const userStore = useUserStore();
         const res = await this.api.post("/", data, {
             headers: {
